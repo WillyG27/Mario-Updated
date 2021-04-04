@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Mario Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://Witch.gd" type="Script" id=3]
+[ext_resource path="res://Eyeball.gd" type="Script" id=4]
+[ext_resource path="res://Eyeball3.gd" type="Script" id=5]
+[ext_resource path="res://Eyeball2.gd" type="Script" id=6]
+
+[node name="Mario Level" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2( 5164.76, -493.565 )
+scale = Vector2( 15.0211, 11.9348 )
+
+[node name="Sprite" parent="ParallaxBackground2/ParallaxLayer" index="0"]
+position = Vector2( 5204.22, 94.3154 )
+scale = Vector2( 15.1708, 10.4202 )
+
+[node name="Sprite" parent="ParallaxBackground3/ParallaxLayer" index="0"]
+position = Vector2( 5205.1, 222.8 )
+scale = Vector2( 15.195, 6.46805 )
+
+[node name="Sprite" parent="ParallaxBackground4/ParallaxLayer" index="0"]
+position = Vector2( 5142.11, 319.286 )
+scale = Vector2( 14.9865, 3.47354 )
+
+[node name="Camera2D" parent="KinematicBody2D" index="1"]
+script = ExtResource( 2 )
+
+[node name="Eyeball" parent="." index="6"]
+position = Vector2( 1482.75, 355.825 )
+script = ExtResource( 4 )
+
+[node name="Eyeball2" parent="." index="7"]
+position = Vector2( 4485.67, 21.1627 )
+script = ExtResource( 6 )
+
+[node name="Eyeball3" parent="." index="8"]
+position = Vector2( 6566.47, 61.8706 )
+script = ExtResource( 5 )
+
+[node name="Witch" parent="." index="9"]
+script = ExtResource( 3 )
+
+[node name="Witch3" parent="." index="11"]
+position = Vector2( 441.898, 189.141 )
+[connection signal="grounded_updated" from="KinematicBody2D" to="KinematicBody2D" method="_on_KinematicBody2D_grounded_updated"]
