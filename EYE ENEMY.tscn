@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://EYE ENEMY.gd" type="Script" id=1]
+[ext_resource path="res://enemy pics/Finished/eye_spriteframes.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.1043, 20.4575 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.7948, 12.7592 )
+
+[node name="EYE ENEMY" type="KinematicBody2D"]
+position = Vector2( -7.69835, 6.15868 )
+collision_layer = 17
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.769836, 2.3095 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D"]
+position = Vector2( 3.22288, -4.57318 )
+scale = Vector2( 3.95906, 3.5982 )
+frames = ExtResource( 2 )
+animation = "Float"
+frame = 4
+playing = true
+
+[node name="Top_checker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_checker"]
+position = Vector2( 1.53967, -30.7934 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="Top_checker" to="." method="_on_Top_checker_body_entered"]
